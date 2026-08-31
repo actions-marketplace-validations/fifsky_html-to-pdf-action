@@ -2,9 +2,6 @@ name: Test Build Pdf
 
 on: [push, pull_request]
 
-env:
-  ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
-
 jobs:
   html_to_pdf:
     name: Generate PDF
@@ -16,7 +13,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           fetch-depth: 1
 
@@ -28,7 +25,7 @@ jobs:
           pdfOptions: '{"margin": {"top": "1px", "left": "100px", "right": "100px", "bottom": "100px"}}'
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: Example PDF
           path: ./example.pdf
